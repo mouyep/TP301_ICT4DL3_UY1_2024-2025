@@ -3,7 +3,12 @@ package com.example.Syllabus.services.authentication;
 
 import com.example.Syllabus.dto.authentication.AuthRequestDTO;
 import com.example.Syllabus.dto.authentication.AuthResponseDTO;
+import com.example.Syllabus.dto.authentication.UserDTO;
+
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -47,5 +52,23 @@ public class FakeAuthAdapter implements AuthService {
                     .build();
         }
     }
+
+
+
+    @Override
+    public List<UserDTO> getUsersByRole(String role) {
+        List<UserDTO> users = new ArrayList<>();
+
+        if ("enseignant".equals(role)) {
+            users.add(new UserDTO(1L, "Professeur John"));
+            users.add(new UserDTO(2L, "Professeur Jane"));
+        } else if ("etudiant".equals(role)) {
+            users.add(new UserDTO(3L, "Étudiant Alice"));
+            users.add(new UserDTO(4L, "Étudiant Bob"));
+        }
+
+        return users;
+    }
+
 }
 
