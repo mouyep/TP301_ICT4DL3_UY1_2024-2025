@@ -26,7 +26,7 @@ public class ComposanteNiveauEtude {
     private NiveauEtude niveauEtude;
 
      // Une ComposanteNiveauEtude d'enseignement contient plusieurs UE
-     @OneToMany(mappedBy = "composante_niveau_etude", cascade = CascadeType.ALL, orphanRemoval = true)
+     @OneToMany(mappedBy = "composanteNiveauEtude", cascade = CascadeType.ALL, orphanRemoval = true)
      @Builder.Default
      private Set<UniteEnseignement> unitesEnseignement = new HashSet<>();
 }
